@@ -44,13 +44,25 @@ public class PlayerController : MonoBehaviour
         }
         _pController.Move(_moveDirection * Time.deltaTime); // The function call that moves the player based on _moveDirection
     }
+
+
+    private void OnTriggerEnter(Collider other) //A function that is called when this object collides with a trigger collider
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Pickup":
+                //Despawn Pickup
+                other.gameObject.SetActive(false);
+                break;
+
+            case "Enemy":
+                //Die
+                gameObject.SetActive(false);
+                break;
+        }
+        
+    }
+        
+    
 }
-
-
-
-
-
-
-
-
 
