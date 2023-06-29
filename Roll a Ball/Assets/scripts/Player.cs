@@ -56,8 +56,9 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Enemy":
-                //Die
                 gameObject.SetActive(false);
+                FindObjectOfType<GameManager>().Endgame();//Finthe GameManger & Tell it to reset the scene
+                //Die
                 break;
         }
         
